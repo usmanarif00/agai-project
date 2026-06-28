@@ -1,5 +1,5 @@
 import streamlit as st
-from AGAI_Assignment import run_pipeline   # IMPORTANT (we will fix naming if needed)
+from rag_backend import run_pipeline   # IMPORTANT (we will fix naming if needed)
 
 st.title("🧠 Tech Support Hub (AGAI Project)")
 
