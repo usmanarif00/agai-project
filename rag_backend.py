@@ -86,8 +86,11 @@ Answer:
 Return only: passed or failed
 """)
 
+    result = "passed" if "passed" in res.content.lower() else "failed"
+
     return {
-        "hallucination": "passed" if "passed" in res.content.lower() else "failed"
+        "hallucination": result,
+        "loop_count": state["loop_count"] + 1  
     }
 
 # -----------------------
