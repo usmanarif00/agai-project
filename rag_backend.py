@@ -65,12 +65,29 @@ def retrieve(state):
 
 def generate(state):
     context = "\n\n".join(state["documents"])
-    res = llm.invoke(f"""
-Use ONLY context:
+
+    prompt = f"""
+You are a senior technical support engineer.
+
+Answer the user question ONLY using the context below.
+
+RULES:
+- Do NOT list keywords
+- Do NOT rewrite query
+- Write full explanation
+- If answer is not in context, say "Not found in manual"
+
+CONTEXT:
 {context}
 
-Question: {state['optimized_query']}
-""")
+QUESTION:
+{state['optimized_query']}
+
+FINAL ANSWER:
+"""
+
+    res = llm.invoke(prompt)
+
     return {"generation": res.content}
 
 def hallucination(state):
