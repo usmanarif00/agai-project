@@ -1,1 +1,10 @@
 streamlit
+langchain
+langgraph
+langchain-community
+langchain-chroma
+chromadb
+langchain-groq
+sentence-transformers
+duckduckgo-search
+streamlit
